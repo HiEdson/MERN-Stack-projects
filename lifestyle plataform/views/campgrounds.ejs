@@ -1,0 +1,166 @@
+<%- include ('partials/header') %>
+<%- include ('partials/nav') %>
+<head>
+    <title>Hossii | activities</title>
+</head>
+
+
+<style>
+    
+.mainsea {
+    /*width: 50%;*/
+    margin: 50px auto;
+}
+
+/* Bootstrap 4 text input with search icon */
+
+.has-search .form-control {
+    padding-left: 2.375rem;
+}
+
+.has-search .form-control-feedback {
+    position: absolute;
+    z-index: 2;
+    display: block;
+    width: 2.375rem;
+    height: 2.375rem;
+    line-height: 2.375rem;
+    text-align: center;
+    pointer-events: none;
+    color: rgb(0, 0, 0);
+}
+.buttonSea{
+    color:red;
+}
+/*#demo {
+  text-align: center;
+  font-size: 14px;
+  margin-top: 0px;
+}*/
+</style>
+
+
+  
+<!--<nav class="navbar navbar-light bg-light">
+    <a class="navbar-brand">Navbar</a>
+    <form action="/activities" method="GET" class="form-inline">
+      <input class="form-control mr-sm-2" name="search" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit" value="search">Search</button>
+    </form>
+  </nav>-->
+
+
+
+
+<div class="">
+        
+    <div class="">
+        <header class="jumbotron" style="background-image: url(https://images.unsplash.com/photo-1518351330216-a38c8ab14640?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80); 
+        background-position: center;
+        
+        
+    background-repeat: no-repeat;
+    background-size: cover; height: 100%;">
+    
+    <!--https://images.unsplash.com/photo-1513539901-c220b3c7bf19?ixlib=rb-1.2.1&auto=format&fit=crop&w=1064&q=80
+    https://images.unsplash.com/photo-1516462919870-8bcf749b0135?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80-->
+            <div class="container text-center" style="color:black;">
+                <strong>
+                    <h1><strong>Oh, What is going on around..?</strong></h1>
+                <p>Best activities close to you, here!</p>
+                </strong>
+                <p>
+                    <a href="/activities/new" class="btn btn-md" style="color: rgb(5, 177, 62); background-color: white"> Share your activity</a>
+                </p>
+            </div>
+        </header>
+
+        <!--search engine-->
+        <div class="container mainsea">
+
+                <!-- Another variation with a button -->
+                <form action="/activities" method="GET">
+                  <div class="input-group search">
+                  <input type="text" class="text-center form-control"  name="search" placeholder="I am looking for...">
+                  <div class="input-group-append">
+                    <button class="btn btn-secondary buttonSea" type="button">
+                      <i class="fa fa-search"></i>
+                    </button>
+                  </div>
+                 </div>
+                </form>
+        </div>
+        <!--end of search engine-->
+        
+
+
+
+
+
+        <div class="container pt-2 pb-5">
+            <div class="row">
+                    <% campgrounds.forEach(function(camp){ %>
+                    
+                <div class="col-md-3 col-sm-6 pb-3 text-center" style="text-align: center; ">
+                        <a href="/activities/<%= camp._id %>" style="text-decoration:none; color:rgb(19, 9, 9); ">
+                            <div class="" style="text-align: center; border-style: ridge; border-width: 1px; border-color: rgba(1, 68, 64, 0.425); background-color: white;">
+                                <img src=" <%= camp.image %>" class="img-thumbnail" alt="<%= camp.name %>" style="max-height: 200px; width: 100%;">
+                                <h5 class="text-center" style="color: limegreen; text-align: center;"><%= camp.name %></h5>
+                                <small style="color: rgb(50, 53, 50);"><i class="fas fa-map-marker-alt"></i> <%= camp.local%></small>
+                                <p id="demo"></p><!--small class="text-center"><%= camp.cre.toDateString() %></!--small-->
+                            </div>    
+                        </a>     
+                </div>
+                <% }); %>
+                
+            </div>
+        </div>
+
+    </div>
+   
+
+
+</div> 
+
+
+
+<script>
+    /* Set the date we're counting down to
+    var countDownDate = new Date("Jan 5, 2020 00:54:00").getTime();
+    
+    // Update the count down every 1 second
+    var x = setInterval(function() {
+    
+      // Get today's date and time
+      var now = new Date().getTime();
+      
+        var passou =new Date(countDownDate+(1*60*1000)).getTime();
+        var fim = now + passou;
+      // Find the distance between now and the count down date
+      var distance = countDownDate - now;
+      // Time calculations for days, hours, minutes and seconds
+      var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        
+      // Output the result in an element with id="demo"
+      document.getElementById("demo").innerHTML = days + "d " + hours + "h "
+      + minutes + "m " + seconds + "s ";
+        
+      // If the count down is over, write some text 
+      if (distance < 0) {
+        clearInterval(x);
+        document.getElementById("demo").innerHTML = "Hapening right now!";
+        document.getElementById("demo").style.color="green";
+      }
+      if (now>passou) {
+        clearInterval(x);
+        document.getElementById("demo").innerHTML = "finished!";
+        document.getElementById("demo").style.color="red";
+      }
+    }, 1000);*/
+    
+    </script>
+
+<%- include ('partials/footer') %>

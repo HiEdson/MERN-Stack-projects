@@ -1,0 +1,27 @@
+<%- include ('partials/header') %>
+<%- include ('partials/nav') %>
+
+<h1>Acoomodation</h1>
+<a href="/places/new">add new place</a>
+
+<% places.forEach(function(x){ %>
+<div>
+    <h1><%=x.name%></h1>
+    <img src="<%=x.filename%>">
+    <h3><%=x.location%></h3>
+    <h3><%=x.price%>£</h3>
+</div>
+
+<% }); %>
+
+
+
+
+
+
+
+
+
+
+
+<%- include ('partials/footer') %>

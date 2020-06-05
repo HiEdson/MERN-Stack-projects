@@ -1,0 +1,94 @@
+
+
+
+
+/*show campgrounds*/
+.title{
+    color: rgba(5, 184, 109, 0.918);
+}
+.imgcenter{
+    width: 100%;
+    width:600;
+    height: 450;
+}
+
+.mainimage{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+}
+textarea{
+     -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+    box-sizing: border-box;	
+    width: 80%; 
+}
+
+.commentbutton {
+   -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;	
+    width: 80%;
+}
+ 
+.buttons{
+    position: relative;
+}
+
+.buttons form button{
+    position: absolute;
+    right: 700px;
+}
+.buttons a {
+    position: relative;
+    left: 110px;
+}
+
+.loginneed{
+    color: rgba(255, 0, 0, 0.863);
+}
+
+.comment{
+    position: relative;
+    
+}
+.commentsection{
+    padding-left: 15px;
+    overflow: auto; height: 400px;
+}
+.commentsection::-webkit-scrollbar-track{
+    box-shadow: inset 0 0 5px red;
+    border-radius: 10px;
+}
+.commentsection::-webkit-scrollbar-thumb{
+    background: red;
+    border-radius: 10px;
+}
+.commentsection::-webkit-scrollbar-thumb:hover {
+    background: #b30000;
+    }
+    
+
+    
+
+
+@media (min-width: 576px) { 
+    .imgcenter{
+        width: 5;
+        height: 50;
+    }
+ }
+/* end of show campgrounds*/
+@media screen and (max-width: 600px){
+.moreAct img{
+    max-width: 150px;
+    max-height: 150px;
+}
+.titleCard{
+    max-width: 150px;
+    max-height: 150px;
+}
+}
+
+

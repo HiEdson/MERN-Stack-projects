@@ -1,0 +1,37 @@
+<%- include ('partials/header') %>
+<%- include ('partials/nav') %>
+
+<title>
+    New Post - Hossii
+</title>
+
+<div class="container">
+        <h1 class="text-center">Share with us your Post!</h1>
+        <form id="formed" action="/posts" method="POST" class="campform" enctype="multipart/form-data">
+            <div   class="row"> 
+                <div id="asd" class="col-md-12">
+                        <input type="text"  class="form-control" name="Posts[title]" placeholder="title here " required>
+                </div>
+                <div id="asd" class="col-md-12">
+                        <label for="image">Image</label>
+                        <input type="file" id="image" class="form-control" name="image" accept="image/*" required>
+                        <!--<input type="text" class="form-control"  name="image" placeholder="image here">-->
+                </div>
+                <div class="col-md-12">
+                    <textarea name="Posts[body]" class="des" placeholder="Well, i..." required></textarea>
+                    
+                </div>
+            </div>
+            <br>
+            <button  id="campnewbtn" class="btn btn-primary">Submit</button>
+        </form>
+</div>
+
+
+<%- include ('partials/footer') %>
+
+
+
+
+
+

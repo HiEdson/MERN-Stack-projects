@@ -1,0 +1,135 @@
+<%- include ('partials/header') %>
+
+
+<h3 class="text-center mt-3 mb-5">Login and enjoy the show!</h3>
+
+<!--form action="/login" method="POST">
+    <div class="form-row align-items-center">
+      <div class="col-sm-3 my-1">
+          <div class="input-group">
+              <div class="input-group-prepend">
+                    <div class="input-group-text">Username</div>
+              </div>
+              <input type="text" class="form-control" name="username" placeholder="I'm...">
+          </div>
+      </div>
+      <div class="col-sm-3 my-1">
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <div class="input-group-text">password</div>
+          </div>
+          <input type="password" class="form-control" name="password" placeholder="password">
+        </div>
+      </div>
+      <div class="col-auto my-1">
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
+    </div>
+  </form-->
+
+<style>
+@import url(http://fonts.googleapis.com/css?family=Roboto:400);
+body {
+  background-color:#fff;
+  -webkit-font-smoothing: antialiased;
+  font: normal 14px Roboto,arial,sans-serif;
+}
+
+.container {
+  padding-bottom: 200px;
+    text-align: center;   
+}
+
+.form-login {
+    background-color: #EDEDED;
+    padding-top: 15px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 15px;
+    border-color:#00cccc;
+    border-width: 5px;
+    box-shadow:0 1px 0 #00cccc;
+}
+
+h4 { 
+ border:0 solid #fff; 
+ border-bottom-width:1px;
+ padding-bottom:10px;
+ text-align: center;
+}
+
+.form-control {
+    border-radius: 10px;
+}
+
+.wrapper {
+    text-align: center;
+}
+@media (max-width: 480px) {
+    #div {
+        top: 50%; /* IMPORTANT */
+        left: 50%; /* IMPORTANT */
+        display: block;
+        position: absolute;
+        background: url(images/background.png) no-repeat center center;
+        width: 750px;
+        height: 417px;
+
+        margin-top: -208.5px; /* HALF OF THE HEIGHT */
+        margin-left: -375px; /* HALF OF THE WIDTH */
+    }
+}
+@media (max-width: 768px) {
+    #div {
+        top: 50%; /* IMPORTANT */
+        left: 50%; /* IMPORTANT */
+        display: block;
+        position: absolute;
+        background: url(images/background.png) no-repeat center center;
+        width: 750px;
+        height: 417px;
+
+        margin-top: -208.5px; /* HALF OF THE HEIGHT */
+        margin-left: -375px; /* HALF OF THE WIDTH */
+    }
+}
+
+</style>
+
+
+
+
+
+
+
+  <div class="container text-center">
+      <div class="row">
+        <div class="col-md-3 col-sm-12 col-12"></div>
+          <div class="col-md-6 col-sm-12 ">
+              <div class="form-login">
+              <h4>Welcome back.</h4>
+              <form action="/login" method="POST">
+              <input type="text" id="userName" name="username" class="form-control input-sm chat-input" placeholder="username (First name)" />
+              </br>
+              <input type="password" id="userPassword" name="password" class="form-control input-sm chat-input" placeholder="password" />
+              </br>
+              <div class="wrapper">
+              <!--span class="group-btn">     
+                  <a href="#" class="btn btn-primary btn-md">login <i class="fa fa-sign-in"></i></a>
+              </span-->
+              <button type="submit" class="btn btn-primary btn-md">login in<i class="fa fa-sign-in"></i></button>
+              </div>
+            </form>
+              </div>
+              <p><a href="/register">Sign Up instead</a></p>
+            
+            <small>Forgot your password? Well, wait a moment, we´re creating this function!</small>
+          </div>
+          
+          <div class="col-md-3 col-sm-12 col-12"></div>
+      </div>
+  </div>
+
+  <%- include ('partials/footer') %>
+  

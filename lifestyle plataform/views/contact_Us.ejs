@@ -1,0 +1,117 @@
+<%- include ('partials/header') %>
+<%- include ('partials/nav') %>
+
+<head>
+  <title>
+    Hossii | Contact Us
+  </title>
+</head>
+
+
+<style>
+    body{
+        background-color: white;
+    }
+    .logo{
+      max-width: 400px;
+      max-height: 400px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+
+      
+    }
+
+</style>
+
+
+
+<h1 class="text-center logo">
+  <img src="/image/newstone.svg">
+</h1>
+
+<h5 class=" text-center mt-3"> 
+    Hi <%if(currentUser){ %>
+   <%= currentUser.username %>,
+  <%}%>
+   welcome to Hossii. Happier to see you. 
+  </h5>
+
+
+<div class=" container mt-5">
+    <h5 class="text-center">In this page:</h5>
+   <div class="row">
+       <div class="col-md-4 col-sm-4 col-6">
+            
+                    <li class="text-center">
+                      <a href="#about">About</a>
+                    </li>
+                
+
+       </div>
+       <div class="col-md-4 col-sm-4 col-6">
+            
+                    <li class="text-center">
+                      <a href="#contact">Contact</a>
+                    </li>
+                
+
+       </div>
+       <div class="col-md-4 col-sm-4 col-6">
+            
+                    <li class="text-center">
+                      <a href="#service">Service</a>
+                    </li>
+                
+
+       </div>
+   </div>
+</div>
+
+<div class="container mt-5 ">
+    <div class="row">
+            
+                    <div class="col-md-12">
+                        <h2 class=" text-center " id="about">About Us</h2>
+                            <p class=" text-center">
+                                    Having a vast infrastructure and collaboration in many areas such as <strong >News</strong>, <strong>Daily Activities</strong> and <strong>Posts</strong> from our users,
+                                    we want you to know more about Our services before contact, so that you make a good use of the contact information listed below.
+                                </p>
+                                <p>
+                                    Our flexible web-platform allow users to share their idea through our <a href="/posts">Posts</a>,
+                                     a free Blog system that helps us to learn and interact each other in several matter.
+                                </p>
+                                <p>
+                                    Attending the necessity of "sharing activities that we are organizing so that others can see, get more information and also be able to join us", we've developed the
+                                     <a href="/activities">Activities</a> section 
+                                    where our users are free to share what is going to happen and throungh our plataform, lot of users
+                                    will be informed so that they can participe or share with other also.
+                                </p>
+                                <p>
+                                    Nowaday everything can be acessed easily, we want make sure that you have the privilege to be informed with
+                                     the most relevants news around the world, our <a href="/yournews">News</a> section daily gives you the power
+                                     to know what is happening by ofering you information such as breaking news, politic, money and many other news.
+                                </p>
+                    </div>
+
+    </div>
+</div>
+
+<div class=" container mt-4">
+            <h2 class="text-center" id="contact">Contact</h2>
+            
+</div>
+
+<div class=" container mt-4 mb-5">
+        <h2 class="text-center" id="service">Services</h2>
+</div>
+
+<br>
+<br>
+<div class=" container"><small ><a href="https://www.linkedin.com/in/eds-casimiro-435500137">Edson Casimiro</a>, Founder & CEO || <strong>Hossii Technologies</strong></small></div>
+
+
+
+
+<%- include ('partials/footer') %>

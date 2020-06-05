@@ -1,0 +1,638 @@
+<%- include ('partials/header') %>
+<%- include ('partials/nav') %>
+
+<link rel="stylesheet" type="text/css" href="/stylesheet/yournews.css">
+<head>
+  <title>
+    Hossii news | Breaking news, daily news
+  </title>
+</head>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--navbar
+<div class="container-fluid topnav" id="myTopnav" style="border-bottom: 1px solid rgba(0, 0, 0, 0.432)">
+    <a href="/">Home</a>
+    <a href="#news">Job</a>
+    <a href="/contactUs">Us</a>
+  
+  
+    
+    
+   
+    <a href="/register" class="active" style="float:right;">
+      <%if(currentUser){ %>
+        <%= currentUser.username %>
+      <% } else {%>
+        <i class="fas fa-user"></i>
+      <%}%>
+     
+    </a>
+    <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
+</div>
+  <!--fim navbar-->
+
+
+
+
+
+
+    
+    <div class="container-fluid text-center title">
+        <h1>Hossii_News</h1>
+        <div class="container">
+            <div class="text-center">
+                <form action="/yournews" method="GET" id="search1">
+                  <input  name="search" type="search" placeholder="Search">
+                  <!--<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>-->
+                </form>
+              </div>
+            
+        </div>
+    </div>
+     
+     
+  
+
+   <div class="container">
+     
+   </div>
+  <p style="border-bottom: 1px solid rgb(192, 187, 187)"></p>
+  <div class="text-center temas">
+   <!--<a href="#">Lifestyle</a>--> 
+    <a href="#Politic">Politic</a>
+    <a href="#Money">Money</a>
+    <a href="#Tech">Technology</a>
+    <a href="#Sport">Sport</a>
+    <a href="#Fashion">Fashion</a>
+    <a href="#Society">Society</a>
+    <% if(currentUser && currentUser.newsPer =="true") {%>
+      <a class="btn btn-primary btn-sm" href="/yournews/new">New</a>
+      
+    <%}%>
+  </div>
+  <p  style="border-bottom: 1.5px solid rgba(0, 0, 0, 0.979)"></p>
+
+
+<!--main class-->
+
+  <div class="container-fluid">
+    <div class="row">
+      <!--first partition-->
+      <div class="col-md-7 mt-4 mb" >
+
+
+        <!--breaking news-->
+
+         <nav style="border-bottom: 1px solid rgba(170, 166, 166, 0.664)">
+            <div class="row">
+                
+              <%Breaking.reverse()%>
+              <%Breaking.forEach(function(x, index){ %>
+              <% if(index ==0){ %>
+                <a class="blackLink" href="/yournews/<%= x._id %>" style="color: black;" >
+                <div class="col-md-12 mb-3" >
+                     <img src="<%=x.image%>"
+                     style="width: 100%; height:432px; " >
+                </div>
+                <div class="col-md-12 mb-3" >
+                    <p ><span class="bNews " style="background: rgba(0, 0, 0, 0.979); color: red;"><%=x.Category%><small class="spinner-grow spinner-grow-sm"></small></span></p> 
+                    
+                    <h2 class="text-center titleOf" ><%=x.title%></h2>
+                    <p><small class="titleOf"><%= x.description.substring(0,200)%>...</small></p>
+                  
+                </div>
+              </a>
+              <% }}) %>
+
+            </div>        
+          </nav>
+      
+        <!--breaking news-->
+
+        <div class="row">
+          <div class="col-md-6 col-sm-6 col-xs-3">
+            <!--primeira da primeira0 sec
+              <nav style="border-bottom: 1px solid rgba(170, 166, 166, 0.664)">-->
+                 
+                  <%Politics.reverse();%>
+                  <%Politics.forEach(function(x, index){ %>
+                  <% if(index == 0){ %>
+                  <div class="col-md-12 col-sm-12 " id="Politic">
+                      <a class="blackLink" href="/yournews/<%= x._id %>" style="color: black;" >
+                    <img src="<%=x.image%>"
+                    style="width: 100%; height: auto;">
+                 </div>
+                <div class="col-md-12" >
+                    
+                  <small class="tagNews">POLITIC</small> <h1 class="text-center"><small><%=x.title.substring(0,50)%>...</small></h1>
+                   <p><small><%= x.description.substring(0,160)%>...</small></p>
+                   </a>
+                </div>
+                 
+                <% }}) %>
+                      
+            </nav>
+            <!--primeira da primeira0 sec end-->
+
+          </div>
+
+          <div class="col-md-6 col-sm-6 col-xs-3">
+                <!--segunda da primeira sec-->
+              
+                
+                 <%Money.reverse();%>
+                 <%Money.forEach(function(x, index){ %>
+                 <% if(index == 0){ %>
+                  <a class="blackLink" href="/yournews/<%= x._id %>" style="color: black;">
+                  <div class="col-md-12 col-sm-12" id="Money" >
+                      
+                    <img src="<%=x.image%>" style="width: 100%; height: auto;">
+                  </div>
+                <div class="col-md-12 col-sm-12" >
+                    
+                  <small class="tagNews">MONEY</small> <h1 class="text-center"><small><%=x.title.substring(0,50)%>...</small></h1>
+                  <p><p><small><%= x.description.substring(0,160)%>...</small></p></p>
+                  
+                </div>
+                </a>
+                <% }}) %>
+                
+              </nav>
+                <!--segunda da primeira sec end-->
+          </div>
+
+      </div>
+        
+
+
+
+
+          
+      </div>
+   
+
+
+      
+        
+        <!--second partition-->
+      <div class="col-md-5 mt-4">
+         <h2 class="text-center" style="color: rgb(0, 0, 0);"><span class="titleBot">Opinion</span></h2>
+         <div class="col-md-12 col-md-6">
+            
+            <div class=" ">
+                <%Opinion.reverse();%>
+                <%Opinion.forEach(function(x, index){ %>
+                <% if(index >= 0 && index < 10 ){ %>
+        
+                        <div class="card-body">
+                          <!--<p class="card-title"><small class="tagNews">G_Society</small></h6>-->
+                            <a class="blackLink" href="/yournews/<%= x._id %>" style="color: black;" >
+                              
+                          <p class="card-text lateralTitle"><strong> <%= x.title%></strong> <small> <br>    <strong> <%=x.author.username%> </strong>  |  Hossii staff</small></p>
+                           
+                          </a>
+                          <!--<p class="card-text"><small class="text-muted">Last updated 5 mins ago</small></p>-->
+                        </div>
+                     
+                    
+                  <% }});%>
+            </div>
+          </div>
+            <!--for the first part-
+            <div class="col-md-12 col-md-6 ">
+                <%news.reverse();%>
+                <%news.forEach(function(x, index){ %>
+                <% if(index >= 0 && index < 12 ){ %>
+
+                        <div class="card-body  " >
+                          <!--<p class="card-title"><small class="tagallnews">G_Society</small></h6>--
+                            <a class="blackLink" href="/yournews/<%= x._id %>" style="color: black;" >
+                          <p class="card-text lateralTitle"><strong ><%= x.title%></strong></p> 
+                          </a>
+                          <!--<p class="card-text"><small class="text-muted">Last updated 5 mins ago</small></p>--
+                        </div>
+                     
+                    
+                  <% }});%>
+            </div>
+            for the second part -->
+          
+         
+      
+  
+      </div>
+      <!--end of second partition-->
+    </div>
+    
+  </div>
+  <p style="border-top: 1px solid rgb(128, 124, 124)"></p>
+
+
+  <!--Cuidadooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo-->
+
+  <div class="container py-3 mt-4">
+    <h2 class="text-center "><span class="titleBot" id="Tech">Technology</span></h2>
+    <!-- Card Start -->
+    <div class="card">
+      <div class="row ">
+          
+        <!-- Carousel start -->
+        <div class="col-md-6" >
+            <%Technology.reverse();%>
+            <%Technology.forEach(function(x, index){ %>
+            <% if(index == 0){ %>
+              
+            
+          <div id="CarouselTest" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                <a class="blackLink" href="/yournews/<%= x._id %>" style="color: black;" >
+              <div class="carousel-item active">
+                <img class="d-block" src="<%=x.image%>" alt="">
+              </div>
+              <div class="card-block px-6 mt-4">
+              
+                  <h4 class="card-title text-center "><strong ><%=x.title%></strong></h4>
+                  <p class="card-text">
+                      <%=x.description.substring(0,100);%>...
+                  </p>
+                  <!--br>
+                  <a href="#" class="mt-auto btn btn-primary  ">Read More</a-->
+                </div>
+                </a>
+            </div>
+          </div>
+          <% }}) %>
+        </div>
+        <!-- End of carousel -->
+
+        <div class="col-md-6 px-3">
+            <div class="row">
+              <div class="col-md-12 ">
+                  <%Technology.reverse();%>
+                  <%Technology.forEach(function(x, index){ %>
+                  <% if(index > 0 && index < 4  ){ %>
+                <div class="card-block px-6 mb-3">
+                    <!--from here-->
+                    <a class="blackLink" href="/yournews/<%= x._id %>" style="color: black;" >
+                        <div class="" style="max-width: 540px;">
+                            <div class="card">
+                            <div class="row no-gutters">
+                              <div class="col-md-4 col-sm-4 col-4">
+                                <div class="pl-2 ">
+                                <img src="<%=x.image%>" class="card-img" alt="...">
+                              </div>
+                              </div>
+                              <div class="col-md-8 col-sm-8 col-8">
+                                <div class="card-body">
+                                  <h5 class="card-text mt-4"><%=x.title.substring(0,45);%>..</h5>
+                                  <!--p class="card-text">This is a wider card with supporting </p>
+                                  <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p-->
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      
+                    
+                    <!--here-->
+                      </a>
+                </div>
+                <% }}) %>
+              </div>
+            </div>
+        </div>
+        
+        
+      </div>
+    </div>
+    <!-- End of card -->
+  
+  </div>
+   
+ 
+  <!--Cuidadooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo-->
+  
+  <div class="container-fluid three mt-4">
+    <div class="row">
+      <div class="col-md-6 col-sm-6 col-12">
+        <h2 class="text-center" id="Fashion"><span class="titleBot">Fashion</span></h2>
+              <%Fashion.reverse();%>
+              <%Fashion.forEach(function(x, index){ %>
+              <% if(index == 0){ %>
+              <div class="card mb-2 bbox" >
+                  <a class="blackLink" href="/yournews/<%= x._id %>" style="color: black;" >
+                  <div class="cardcenter">
+                      <img src="<%=x.image%>" class="card-img-top" style="width: 100%; height:300px; "  >
+                    </div>
+                  <div class="card-body ">
+                      
+                    <small class="tagNews">FASHION</small> <h3 class="card-text text-center"><strong><%=x.title.substring(0,30)%>...</strong></h3>
+                        
+                  </div>
+                </a>
+                </div>
+                <% }}) %>
+
+      </div>
+      <!---->
+
+      <div class="col-md-6 col-sm-6 col-12">
+          <h2 class="text-center"><span class="titleBot" id="Famous">Famous</span></h2>
+                <%Famous.reverse();%>
+                <%Famous.forEach(function(x, index){ %>
+                <% if(index == 0){ %>
+                <div class="card mb-2 bbox" >
+                    <a class="blackLink" href="/yournews/<%= x._id %>" style="color: black;" >
+                    <div class="cardcenter">
+                        <img src="<%=x.image%>" class="card-img-top" style="width: 100%; height:300px; "  >
+                      </div>
+                    <div class="card-body ">
+                        
+                      <small class="tagNews">FAMOUS</small> <h3 class="card-text text-center"><strong><%=x.title.substring(0,30)%>...</strong></h3>
+                          
+                    </div>
+                  </a>
+                  </div>
+                  <% }}) %>
+  
+        </div>
+    </div>
+
+  </div>
+
+
+
+
+  <!--fourth-->
+  <div class="container-fluid mt-5">
+    <div class="row">
+      <div class="col-md-3 col-sm-4 col-12 mt-3">
+        <small style="color: rgb(4, 112, 40);">POLITIC</small>
+        <div class="row">
+            <%Politics.reverse();%>
+            <%Politics.forEach(function(x, index){ %>
+              <% if(index > 0 && index < 7){ %> 
+            
+          <div class="col-md-12">
+              <ul>
+                <li>
+                    <a class="blackLink" href="/yournews/<%= x._id %>" style="color: black;" >
+                      <div class=" mb-4"> 
+                            <small><strong><%=x.title%></strong></small>
+                          
+                      </div>
+                      </a>
+                </li>
+              </ul>
+          </div>
+          <%}})%>
+        </div>
+      </div>
+      <!---->
+      <div class="col-md-6 col-sm-8 col-12">
+          <div class="col-md-12">
+              <h2 class="text-center"><span class="titleBot" id="Sport">Sport</span></h2>
+                    <%Sport.reverse();%>
+                    <%Sport.forEach(function(x, index){ %>
+                    <% if(index == 0){ %>
+                    <div class="card mb-2 bbox" >
+                        <a class="blackLink" href="/yournews/<%= x._id %>" style="color: black;" >
+                        <div class="cardcenter">
+                            <img src="<%=x.image%>" class="card-img-top" style="width: 100%; height:300px; "  >
+                          </div>
+                        <div class="card-body ">
+                            
+                          <small class="tagNews">SPORT</small> <h3 class="card-text text-center"><strong><%=x.title.substring(0,30)%>...</strong></h3>
+                              
+                        </div>
+                      </a>
+                      </div>
+                      <% }}) %>
+          </div>            
+           
+
+      </div>
+      <!---->
+      <div class="col-md-3 col-sm-4 col-12 mt-3">
+          <small style="color: rgb(4, 112, 40);">MONEY</small>
+          <div class="row">
+              <%Money.reverse();%>
+              <%Money.forEach(function(x, index){ %>
+                <% if(index > 0 && index < 7){ %> 
+              
+            <div class="col-md-12">
+                <ul>
+                  <li>
+                      <a class="blackLink" href="/yournews/<%= x._id %>" style="color: black;" >
+                        <div class=" mb-4"> 
+                              <small><strong><%=x.title%></strong></small>
+                            
+                        </div>
+                        </a>
+                  </li>
+                </ul>
+            </div>
+            <%}})%>
+          </div>
+        </div>
+      <!---->
+    </div>
+  </div>
+
+
+  <!--fifth-->
+  <div class="container-fluid mt-4 mb-4">
+      <div class="row">
+        <div class="col-md-3 col-sm-4 col-12 mt-3">
+          <small style="color: rgb(4, 112, 40);">FASHION</small>
+          <div class="row">
+              <%Fashion.reverse();%>
+              <%Fashion.forEach(function(x, index){ %>
+                <% if(index > 0 && index < 7){ %> 
+              
+            <div class="col-md-12">
+                <ul>
+                  <li>
+                      <a class="blackLink" href="/yournews/<%= x._id %>" style="color: black;" >
+                        <div class=" mb-4"> 
+                              <small><strong><%=x.title%></strong></small>
+                            
+                        </div>
+                        </a>
+                  </li>
+                </ul>
+            </div>
+            <%}})%>
+          </div>
+        </div>
+        <!---->
+        <div class="col-md-6 col-sm-8 col-12">
+            <div class="col-md-12">
+                <h2 class="text-center"><span class="titleBot">Society</span></h2>
+                      <%Society.reverse();%>
+                      <%Society.forEach(function(x, index){ %>
+                      <% if(index == 0){ %>
+                      <div class="card mb-2 bbox" id="Society">
+                          <a class="blackLink" href="/yournews/<%= x._id %>" style="color: black;" >
+                          <div class="cardcenter">
+                              <img src="<%=x.image%>" class="card-img-top" style="width: 100%; height:300px; "  >
+                            </div>
+                          <div class="card-body ">
+                              
+                            <small class="tagNews">SOCIETY</small> <h3 class="card-text text-center"><strong><%=x.title.substring(0,30)%>...</strong></h3>
+                                
+                          </div>
+                        </a>
+                        </div>
+                        <% }}) %>
+            </div>            
+             
+  
+        </div>
+        <!---->
+        <div class="col-md-3 col-sm-4 col-12 mt-3">
+            <small style="color: rgb(4, 112, 40);">FAMOUS</small>
+            <div class="row">
+                <%Famous.reverse();%>
+                <%Famous.forEach(function(x, index){ %>
+                  <% if(index > 0 && index < 7){ %> 
+                
+              <div class="col-md-12">
+                  <ul>
+                    <li>
+                        <a class="blackLink" href="/yournews/<%= x._id %>" style="color: black;" >
+                          <div class=" mb-4"> 
+                                <small><strong><%=x.title%></strong></small>
+                              
+                          </div>
+                          </a>
+                    </li>
+                  </ul>
+              </div>
+              <%}})%>
+            </div>
+          </div>
+        <!---->
+      </div>
+    </div>
+
+
+
+
+<div class="container">
+  <p class="text-center">See also</p>
+  <div class="row">
+    
+        <div class="col-md-6 col-sm-6 col-6" >
+            <ul class="text-center ">
+               <a href="/posts"><p>Blogs</p></a>
+            </ul>
+          </div>
+          <div class="col-md-6 col-sm-6 col-6" >
+              <ul class="text-center ">
+                 <a href="/activities"><p>Activities</p></a>
+              </ul>
+            </div>
+    
+  </div>
+</div>
+
+
+
+
+
+
+
+
+  <script>
+  
+  function myFunction() {
+        var x = document.getElementById("myTopnav");
+        if (x.className === "topnav") {
+          x.className += " responsive";
+        } else {
+          x.className = "topnav";
+        }
+      }
+
+     
+      var dateObj = new Date();
+var month = dateObj.getUTCMonth() + 1; //months from 1-12
+var day = dateObj.getUTCDate();
+var year = dateObj.getUTCFullYear();
+
+var newdate = day + "/" + month + "/" + year;
+document.getElementById("month").innerHTML = months[d.getMonth()];
+
+
+//for month 
+var d = new Date();
+var months = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+document.getElementById("month").innerHTML = months[d.getMonth()];
+
+
+      //toDateString()
+  </script>
+
+
+
+
+<%- include ('partials/footer') %>
+
+
+
+
+
+
+
+
+
+
+
+<!--
+
+ <!--the center part--
+               <nav style="border-bottom: 1px solid rgba(170, 166, 166, 0.664)">
+                <div class="row">
+                    <%Technology.reverse();%>
+                    <%Technology.forEach(function(x, index){ %>
+                    <% if(index == 0){ %>
+                      <div class="col-md-5" >
+                          <small class="tagNews">G_Technology</small> <h1 class="text-center"><small><%=x.title%></small></h1>
+                          <p><small><%= x.description.substring(0,160)%>...</small></p>
+                         </div>
+                         <div class="col-md-7 mb-3" >
+                           <img src="<%=x.image%>"
+                          style="width: 100%;">
+                         </div>
+                    <% }}) %>
+                  </div>
+                  <!--the center part end-->
+                   <!--the center part--
+               <nav style="border-bottom: 1px solid rgba(170, 166, 166, 0.664)">
+                <div class="row">
+                    <%Fashion.reverse();%>
+                    <%Fashion.forEach(function(x, index){ %>
+                    <% if(index == 0){ %>
+                      <div class="col-md-5" >
+                          <small class="tagNews">G_Fashion</small> <h1 class="text-center"><small><%=x.title%></small></h1>
+                          <p><small><%= x.description.substring(0,160)%>...</small></p>
+                         </div>
+                         <div class="col-md-7 mb-3" >
+                           <img src="<%=x.image%>"
+                          style="width: 100%;">
+                         </div>
+                    <% }}) %>
+                  </div>
+                  <!--the center part end-->

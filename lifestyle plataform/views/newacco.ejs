@@ -1,0 +1,32 @@
+<%- include ('partials/header') %>
+
+<div class="container">
+        <h1 class="text-center">Create your advertisiment, reach more than ** person and help us to know you, it´s free</h1>
+        <form id="formed" action="/places" method="POST" class="campform" enctype="multipart/form-data">
+            <div   class="row">
+                <div id="asd" class="col-md-12">
+                        <input type="text"  class="form-control" name="newPlace[name]" placeholder="name">
+                </div>
+                <div id="asd" class="col-md-12">
+                        <input type="text" class="form-control"  name="newPlace[location]" placeholder="location">
+                </div>
+                <div id="asd" class="col-md-12">
+                        <input type="file"  name="image" id="image" class="custom-file-input" accept="image/*" required>
+                        <label for="image" class="custom-file-label">choose image</label>
+                        <!--<input type="text"  class="form-control" name="image" placeholder="image">-->
+                </div>
+                <div id="asd" class="col-md-12">
+                        <input type="number"  class="form-control" name="newPlace[price]   " placeholder="price/night  $">
+                </div>
+                <div class="col-md-12">
+                        <input type="text"  class="form-control des" name="newPlace[description]" placeholder="about the place">
+                    </div>
+            </div>
+        <br>
+            <button  id="campnewbtn" class="btn btn-primary">Submit</button>
+        </form>
+</div>
+
+<%- include ('partials/footer') %>
+
+

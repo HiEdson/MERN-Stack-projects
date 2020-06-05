@@ -1,0 +1,40 @@
+{
+  "name": "mylocalguide.start",
+  "version": "1.0.0",
+  "description": "my App",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "author": "edson casimiro",
+  "license": "ISC",
+  "dependencies": {
+    "aurelia-froala-editor": "^3.1.0",
+    "body-parser": "^1.19.0",
+    "cloudinary": "^1.18.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.1.0",
+    "ejs": "^3.0.1",
+    "ejs-lint": "^1.0.1",
+    "express": "^4.17.1",
+    "express-sanitizer": "^1.0.5",
+    "express-session": "^1.16.2",
+    "express-title": "^0.1.0",
+    "express-visit-counter": "^1.0.0",
+    "froala-editor": "^3.1.0",
+    "fs": "0.0.1-security",
+    "gridfs-stream": "^1.1.1",
+    "js-cookie": "^2.2.1",
+    "method-override": "^3.0.0",
+    "mongodb": "^3.4.1",
+    "mongoose": "^5.6.4",
+    "multer": "^1.4.2",
+    "multer-gridfs-storage": "^3.3.0",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0",
+    "passport-local-mongoose": "^5.0.1",
+    "sqlite3": "^4.1.0",
+    "summernote": "^0.8.15"
+  }
+}

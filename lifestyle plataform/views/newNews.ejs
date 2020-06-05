@@ -1,0 +1,74 @@
+<%- include ('partials/header') %>
+<%- include ('partials/nav') %>
+
+<h2 class="text-center mt-3">Hi <strong><%=currentUser.username%></strong>, welcome</h2>
+
+
+
+
+
+<head>
+    <title>
+         Hossii news | new content
+    </title>
+</head>
+
+<div class="container">
+        
+        <form id="formed" action="/yournews" method="POST" class="campform" >
+            <div  class="row">
+                 
+                <div id="asd" class="col-md-9">
+                    <input type="text"  class="form-control" name="yournews[title]" placeholder="Content's title" required>
+                </div>
+                
+                <div id="asd" class="col-md-3">
+                    <div class="form-group" >
+                        <select class="form-control" name="yournews[Category]" required>
+                          <option active></option>
+                          <option>Breaking News</option>
+                          <option>Technology</option>
+                          <option>Money</option>
+                          <option>Politics</option>
+                          <option>Fashion</option>
+                          <option>Sport</option>
+                          <option>Famous</option>
+                          <option>Society</option>
+                          <option>Opinion</option>
+                        </select>
+                      </div>
+                      
+                </div>
+                    
+                
+                <div id="asd" class="col-md-12">
+                        <input type="text" class="form-control"  name="yournews[image]" placeholder="url image here">
+                        
+                        <!--<label for="image">Image</label>
+                        <input type="file" id="image" class="form-control" name="image" accept="image/*" required>
+                        -->
+                </div>
+                <div class="col-md-12">
+                    <pre>
+                    <textarea name="yournews[description]" id="message" class="des" placeholder="What is happening..." required></textarea>
+                    </pre>
+                   <!-- <input type="text"  class="form-control des" name="description" placeholder="Tell Us About It...">-->
+                </div>
+                <p class="mt-2"><small>** Please, use this last step only for <strong>Opinion</strong> or <strong>Breaking News</strong></small></p>
+                <div id="asd" class="col-md-12">
+                                <div class="form-group" >
+                                    <select class="form-control" name="yournews[typeContent]">
+                                      <option active> </option>
+                                      <option>Opinion</option>
+                                      <option>Breaking</option>
+                                    </select>
+                                </div>
+                </div>
+            </div>
+         <br>
+            <button  id="campnewbtn" class="btn btn-primary">Submit</button>
+        </form>
+</div>
+
+
+<%- include ('partials/footer') %>

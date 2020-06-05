@@ -1,0 +1,37 @@
+<head>
+    <link rel="stylesheet" type="text/css" href="/stylesheet/nav.css">
+    <script src="../script/nav.js"></script>
+
+  </head>
+
+  
+
+
+    <div class="bs-example">
+        <nav class="container-fluid navbar navbar-expand-md navbar-dark bg-dark">
+            <a href="/" class="navbar-brand">
+                <img src="/image/newstone.svg" height="30" alt="CoolBrand">
+            </a>
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+    
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav">
+                    <!--a href="#" class="nav-item nav-link active">Home</a-->
+                    <a href="/contactUs" class="nav-item nav-link">Us</a>
+                    <a href="/contactUs" class="nav-item nav-link">Business</a>
+                    <!--a href="#" class="nav-item nav-link disabled" tabindex="-1">Reports</a-->
+                </div>
+                <div class="navbar-nav ml-auto">
+
+                  <%if(currentUser){ %>
+                    <span style="color:white;"> <%= currentUser.username %></span>
+                    <% } else {%>
+                     <a href="/register" class="nav-item nav-link">Sign Up<i class="fas fa-user"></i></a>
+                    <%}%>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <!--img src="/image/newstone.svg"-->

@@ -1,0 +1,47 @@
+<%- include ('partials/header') %>
+
+<head>
+    <title>
+            new activity
+    </title>
+</head>
+<!--form_for @page, :html => { :multipart => true } do |f|
+  = cloudinary_js_config-->
+<div class="container">
+        <h1 class="text-center" style="color: rgba(5, 184, 109, 0.918);">What is going to happen? Share here!</h1>
+        <form id="formed" action="/activities" method="POST" class="campform"  enctype="multipart/form-data">
+            <div  class="row">
+                 
+                <div id="asd" class="col-md-9">
+                    <input type="text"  class="form-control" name="newCampground[name]" placeholder="activity name" required>
+                </div>
+                
+                <div id="asd" class="col-md-3">
+                    <input type="text"  class="form-control" name="newCampground[local]" placeholder="local" required>
+                </div>
+                    
+                
+                <div id="asd" class="col-md-12">
+                        <label for="image">Image</label>
+                        <input type="file" id="image" class="form-control" name="image" accept="image/*" required>
+
+                        <!--<input type="text" class="form-control"  name="image" placeholder="url image here">-->
+                </div>
+                <div class="col-md-12">
+                    <textarea name="newCampground[description]" class="des" placeholder="Tell Us About It..." required></textarea>
+                   <!-- <input type="text"  class="form-control des" name="description" placeholder="Tell Us About It...">-->
+                </div>
+                <div id="asd" class="col-md-12">
+                    <input type="text"  class="form-control" name="newCampground[references]" placeholder="Some reference link? (optional)" >
+                    <small>** The link must be: https://www.YOURSITE.DNS(.com | .net ..etc...) or http://www.YOURSITE.DNS.</small>
+                    <br><small>Example: http://www.hossii.com</small>
+                </div>
+            </div>
+         <br>
+            <button  id="campnewbtn" class="btn btn-primary">Submit</button>
+        </form>
+</div>
+
+
+
+<%- include ('partials/footer') %>

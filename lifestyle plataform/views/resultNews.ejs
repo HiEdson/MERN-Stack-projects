@@ -1,0 +1,121 @@
+<%- include ('partials/header') %>
+
+<link rel="stylesheet" type="text/css" href="/stylesheet/yournews.css">
+<head>
+  <title>
+    Hossii | Breaking news, daily news
+  </title>
+</head>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="container-fluid topnav" id="myTopnav" style="border-bottom: 1px solid rgba(0, 0, 0, 0.432)">
+    <a href="/">Home</a>
+    <a href="#news">About</a>
+    <a href="#contact">Contact</a>
+  
+  
+    
+    
+   
+    <a href="/register" class="active" style="float:right;">
+      <%if(currentUser){ %>
+        <%= currentUser.username %>
+      <% } else {%>
+        <i class="fas fa-user"></i>
+      <%}%>
+     
+    </a>
+    <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
+</div>
+  <!--fim navbar-->
+
+
+
+
+
+
+  
+  <div class="container-fluid text-center title">
+      <h1>LocalGuide_News</h1>
+      <div class="container">
+          <div class="text-center">
+              <form action="/yournews" method="GET" id="search1">
+                <input  name="search" type="search" placeholder="Search">
+                <!--<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>-->
+              </form>
+            </div>
+          
+      </div>
+  </div>
+   
+   
+<p  style="border-bottom: 1.5px solid rgba(0, 0, 0, 0.979)"></p>
+
+<div class="container-fluid mb-4 mt-4">
+    <div class=" row">
+            <%news.reverse();%>
+            <%news.forEach(function(x){ %>
+            <div class="col-md-4">
+                          
+                          <div class="card mb-2 bbox" >
+                              <a class="blackLink" href="/yournews/<%= x._id %>" style="color: black;" >
+                              <div class="cardcenter" >
+                                  <img src="<%=x.image%>" class="card-img-top" style="width: 100%; height:200px; "  >
+                                </div>
+                              <div class="card-body ">
+                                  
+                                <small class="tagNews">G_<%=x.Category%></small> <h6 class="card-text text-center"><strong><%=x.title.substring(0,30)%>...</strong></h6>
+                                <p class="card-text text-center"><%=x.title.substring(0,60)%>...</p>
+                              </div>
+                            </a>
+                            </div>
+                           
+                </div>
+                <%}) %>
+    </div>
+</div>
+
+
+
+<script>
+function myFunction() {
+    var x = document.getElementById("myTopnav");
+    if (x.className === "topnav") {
+      x.className += " responsive";
+    } else {
+      x.className = "topnav";
+    }
+  }
+
+ 
+  var dateObj = new Date();
+var month = dateObj.getUTCMonth() + 1; //months from 1-12
+var day = dateObj.getUTCDate();
+var year = dateObj.getUTCFullYear();
+
+var newdate = day + "/" + month + "/" + year;
+document.getElementById("month").innerHTML = months[d.getMonth()];
+
+
+//for month 
+var d = new Date();
+var months = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+document.getElementById("month").innerHTML = months[d.getMonth()];
+
+
+  //toDateString()
+</script>
+
+<%- include ('partials/footer') %>

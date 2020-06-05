@@ -1,0 +1,338 @@
+<%- include ('partials/header') %>
+
+<!--style>
+  body{
+    background-image: url( https://images.unsplash.com/photo-1525026198548-4baa812f1183?ixlib=rb-1.2.1&auto=format&fit=crop&w=933&q=80);
+    height: 100%; 
+      position: relative;
+        /* Center and scale the image nicely */
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+  }
+  @import url(https://fonts.googleapis.com/css?family=Raleway:400,100,200,300);
+* {
+  margin: 0;
+  padding: 0; }
+
+a {
+  color: #666;
+  text-decoration: none; }
+  a:hover {
+    color: #4FDA8C; }
+
+input {
+  font: 16px/26px "Raleway", sans-serif; }
+
+body {
+  color: #666;
+  background-color: #f1f2f2;
+  font: 16px/26px "Raleway", sans-serif; }
+
+.form-wrap {
+  background-color: #fff;
+  width: 390px;
+  margin: 3em auto;
+  box-shadow: 0px 1px 8px #BEBEBE;
+  -webkit-box-shadow: 0px 1px 8px #BEBEBE;
+  -moz-box-shadow: 0px 1px 8px #BEBEBE; }
+  .form-wrap .tabs {
+    overflow: hidden; }
+    .form-wrap .tabs h3 {
+      float: left;
+      width: 50%; }
+      .form-wrap .tabs h3 a {
+        padding: 0.5em 0;
+        text-align: center;
+        font-weight: 400;
+        background-color: #e6e7e8;
+        display: block;
+        color: green; }
+        .form-wrap .tabs h3 a.active {
+          background-color: yellow; }
+  .form-wrap .tabs-content {
+    padding: 1.5em; }
+    .form-wrap .tabs-content div[id$="tab-content"] {
+      display: none; }
+    .form-wrap .tabs-content .active {
+      display: block !important; }
+  .form-wrap form .input {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    color: inherit;
+    font-family: inherit;
+    padding: .8em 0 10px .8em;
+    border: 1px solid #CFCFCF;
+    outline: 0;
+    display: inline-block;
+    margin: 0 0 .8em 0;
+    padding-right: 2em;
+    width: 100%; }
+  .form-wrap form .button {
+    width: 100%;
+    padding: .8em 0 10px .8em;
+    background-color: #28A55F;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    text-transform: uppercase; }
+    .form-wrap form .button:hover {
+      background-color: #4FDA8C; }
+  .form-wrap form .checkbox {
+    visibility: hidden;
+    padding: 20px;
+    margin: .5em 0 1.5em; }
+    .form-wrap form .checkbox:checked + label:after {
+      -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+      filter: alpha(opacity=100);
+      opacity: 1; }
+  .form-wrap form label[for] {
+    position: relative;
+    padding-left: 20px;
+    cursor: pointer; }
+    .form-wrap form label[for]:before {
+      content: '';
+      position: absolute;
+      border: 1px solid #CFCFCF;
+      width: 17px;
+      height: 17px;
+      top: 0px;
+      left: -14px; }
+    .form-wrap form label[for]:after {
+      -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+      filter: alpha(opacity=0);
+      opacity: 0;
+      content: '';
+      position: absolute;
+      width: 9px;
+      height: 5px;
+      background-color: transparent;
+      top: 4px;
+      left: -10px;
+      border: 3px solid #28A55F;
+      border-top: none;
+      border-right: none;
+      -webkit-transform: rotate(-45deg);
+      -moz-transform: rotate(-45deg);
+      -o-transform: rotate(-45deg);
+      -ms-transform: rotate(-45deg);
+      transform: rotate(-45deg); }
+  .form-wrap .help-text {
+    margin-top: .6em; }
+    .form-wrap .help-text p {
+      text-align: center;
+      font-size: 14px; }
+
+
+
+</style-->
+
+
+
+
+
+
+<h1 class="text-center">Join our family</h1>
+
+<!--<form action="/register" method="POST" style="padding: 5% 35%;">
+    <div class="form-row align-items-center">
+      <div class="col-md-12">
+          <div class="input-group">
+              <div class="input-group-prepend">
+                    <div class="input-group-text">Username</div>
+              </div>
+              <input type="text" class="form-control" name="username" placeholder="I'm...">
+          </div>
+      </div>
+      <div class="col-md-12">
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <div class="input-group-text">password</div>
+          </div>
+          <input type="password" class="form-control" name="password" placeholder="password">
+        </div>
+      </div>
+      <div class="col-auto my-1">
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
+    </div>
+</form>-->
+
+
+
+
+
+
+
+
+
+<!--div class="conteiner">
+<div class="row">
+  <div class="col-md-12 col-sm-12 col-12">
+    
+<div class="form-wrap">
+  <div class="tabs">
+    <h3 class="signup-tab"><a class="active" href="#signup-tab-content">Sign Up</a></h3>
+    <h3 class="login-tab"><a href="#login-tab-content">Login</a></h3>
+  </div><!--.tabs!!!!--
+
+  <div class="tabs-content">
+    <div id="signup-tab-content" class="active">
+      <form class="signup-form" action="/register" method="post">
+        <input type="text" class="input" id="username" name="username" autocomplete="off" placeholder="First name">
+        <input type="text" class="input" id="lastName" name="lastName" autocomplete="off" placeholder="Last name">
+        <input type="email" class="input" id="user_email" name="email" autocomplete="off" placeholder="Email">
+        <input type="password" class="input" id="password" name="password" autocomplete="off" placeholder="Password">
+        <input type="submit" class="button" value="Sign Up">
+      </form><!--.login-form--
+      <div class="help-text">
+        <p>By signing up, you agree to our</p>
+        <p><a href="#">Terms of service</a></p>
+      </div><!--.help-text-->
+    </div><!--.signup-tab-content--
+
+    <div id="login-tab-content">
+      <form class="login-form" action="/login" method="post">
+        <input type="text" class="input" id="user_login" name="username" autocomplete="off" placeholder="Username">
+        <input type="password" class="input" id="user_pass" name="password" autocomplete="off" placeholder="Password">
+        <input type="checkbox" class="checkbox" id="remember_me">
+        <label for="remember_me">Remember me</label>
+
+        <input type="submit" class="button" value="Login">
+      </form><!--.login-form--
+      <div class="help-text">
+        <p><a href="#">Forget your password?</a></p>
+      </div><!--.help-text-->
+    </div><!--.login-tab-content-->
+  </div><!--.tabs-content-->
+</div><!--.form-wrap-->
+
+  </div>
+</div>
+</div>
+
+
+
+
+
+<script
+src="https://code.jquery.com/jquery-3.4.1.js"
+integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+crossorigin="anonymous"></script>
+
+<script>
+ 
+/*
+jQuery(document).ready(function($) {
+	tab = $('.tabs h3 a');
+
+	tab.on('click', function(event) {
+		event.preventDefault();
+		tab.removeClass('active');
+		$(this).addClass('active');
+
+		tab_content = $(this).attr('href');
+		$('div[id$="tab-content"]').removeClass('active');
+		$(tab_content).addClass('active');
+	});
+});*/
+</script>
+
+
+
+
+
+
+<!---->
+<style>
+.note
+{
+    text-align: center;
+    height: 80px;
+    background: -webkit-linear-gradient(left, #7dddb8, #03a5ce);
+    color: black;
+    font-weight: bold;
+    line-height: 80px;
+}
+.form-content
+{
+    padding: 5%;
+    border: 1px solid #ced4da;
+    margin-bottom: 2%;
+}
+.form-control{
+    border-radius:1.5rem;
+}
+.btnSubmit
+{
+    border:none;
+    border-radius:1.5rem;
+    padding: 1%;
+    width: 20%;
+    cursor: pointer;
+    background: #00cccc;
+    color: #fff;
+}
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="container register-form">
+  <div class="form">
+      <div class="note text-center">
+          <h3>Register</h3>
+      </div>
+
+      <div class="form-content">
+          <form class="signup-form" action="/register" method="POST">
+          <div class="row">
+              
+              <div class="col-md-12">
+                 
+                  <div class="form-group">
+                      <input type="text" class="form-control" name="username" required placeholder="First name *" value=""/>
+                  </div>
+                  <div class="form-group">
+                      <input type="text" class="form-control" name="lastName" required placeholder="Last name *" value=""/>
+                  </div>
+                  
+              
+                <div class="form-group">
+                      <input type=text class="form-control" name="email" required placeholder="Email*" value=""/>
+                  </div>
+                  <div class="form-group">
+                      <input type="password" class="form-control" name="password" required placeholder="Your Password *" value=""/>
+                  </div>
+                  
+              </div>
+              <button type="submit" class="btnSubmit">Submit</button>
+              
+        
+          </div>
+        </form>
+      </div>
+  </div>
+  <p>Already have an account? <a href="/login">Login.</a></p>
+</div>
+
+
+
+<%- include ('partials/footer') %>
+
+
+
+
+
+ 

@@ -1,0 +1,240 @@
+<%- include ('partials/header') %>
+<%- include ('partials/nav') %>
+<head>
+    <title><%= camp.name%> - Hossii</title>
+</head>
+<link rel="stylesheet" type="text/css" href="/stylesheet/camp.css">
+
+
+<div class="container text-center">
+    <div class="col-md-12">
+        <h2 class=" title"><%= camp.name%></h2>
+        <p class="card-text-end"><small class="text-muted">Created in <%= camp.cre.toDateString() %> || <a>by : <%=camp.author.username%></a> </small></p>    
+    </div>
+</div>
+
+<div class="container text-center pb-3">
+        <img class="rounded mx-auto d-block mainimage" src="<%= camp.image%>" style="max-height: 700px;">
+        <% if(currentUser && camp.author.id.equals(currentUser._id)){ %>
+            <section class="contaier text-center">
+                    <a href="/activities/<%=camp._id%>/edit">Edit my activity</a>
+                    <!--<form action="/campgrounds/<%= camp._id %>?_method=DELETE" method="POST">
+                        <button>Delete</button>
+                    </form>-->
+            </section>
+        <% } %>
+
+       
+
+        
+        <small> <i class="fas fa-map-marker-alt"></i> <%= camp.local%></small>  <br>
+        
+        <a href="<%=reference%>" >
+            <button class="btn btn-success btn-xs">Go to reference link</button>
+        </a>
+       
+</div>
+
+<div class="container mb-5" style="background-color:white ;">
+    <p style="border-bottom: 1px solid rgba(0, 0, 0, 0.171)"></p>
+    <div class="row">
+        <div class="col-md-6 pt-3 mb-4 text-center" style="border-right: 1px solid rgba(0, 0, 0, 0.171);" >
+            <h4 class=" title text-center">activity Description</h4>
+            <p class="mr-2" style=" text-align: justify;"><%= camp.description%></p>
+        </div>
+
+        <div class="col-md-6 pt-4 ">
+            <h4 class=" title text-center">User's comments</h4>
+                
+            <div class="text-center">
+                    <% if(currentUser) { %>
+                        <textarea rows="4" cols="50" name="comment[text]" placeholder="i think..." form="usrform" >
+                        </textarea>
+                        <form action="/activities/<%=camp._id %>/comments" method="POST" id="usrform">
+                            <button class="btn btn-primary commentbutton">Comment</button>
+                        </form>
+                        
+                        <!--<input type="text" name="comment[text]" placeholder="i think..." style=" -webkit-box-sizing: border-box;
+                            -moz-box-sizing: border-box;
+                            box-sizing: border-box;	
+                        width: 80%; height: 30px;">-->
+                    <% } else{ %>
+                         <a class="loginneed" href="/login">to comment you need to be logged in, click here! </a><i class="fas fa-user-tie"></i>
+                    <% } %>
+            </div>
+
+            <div class="commentsection" >
+                
+                   <% camp.comments.reverse();%>
+                <% camp.comments.forEach(function(comment, index){ %>
+                    <div style="background-color:  rgba(216, 209, 209, 0.295); border-radius: 3px;" class="comment mt-3">
+                        <p >
+                             <!--if(index ==0 || index ==1 || index ==2 ||index ==3 ||index ==4 ){-->
+                            <%console.log("===========================================")%>
+                            <% console.log(comment.text) %>
+                            <% console.log(comment.author.username) %>
+                            <% console.log( comment.comcreated.toDateString() ); %>
+                            <strong style="color:rgb(9, 86, 117);"> 
+                               
+                                    <%= comment.author.username %> 
+                                 </strong>  <%= comment.text %> 
+                                 <br>
+                                 <small><%= comment.comcreated.toDateString(); %></small> 
+                            <%console.log("===========================================")%>
+                           
+                          
+                             
+                              
+                              <!--<a href="/campgrounds/camp._id/comments/:comment._id/edit">edit</a>-->
+                            </p>
+                         
+                         
+                    </div>
+                 <% }); %>
+            </div>
+        <% if(camp.comments.length>5){%>
+        <p class="text-center"><small><%=camp.comments.length %> Comments</small></p>
+        <%}%>
+        </div>
+        
+    </div>
+    <div class="row m-3">
+            <div class="col-md-12">
+                <p><small>no advertise to be seen</small></p>
+            </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+                <div class="text-center">
+                    <h3 class="mt-3 mb-3" style="color: rgba(5, 184, 109, 0.918);">More activities in this location</h3>
+                </div>
+        </div>
+    </div>
+    
+    <div class="row">
+   
+            <%arr.forEach(function(moreCamp){%>
+                    <% if ( moreCamp.local === location) { %>
+                          
+                
+                    
+                    <div class="col-md-2 col-sm-2 moreAct">
+                            <a href="/activities/<%= moreCamp._id %>">
+                                    <img src="<%= moreCamp.image %>" class="card-img-top" alt="...">
+                                    
+                                            <p class="card-title titleCard"><%=moreCamp.name%></p>
+                                            <p class="card-text-end"><small class="text-muted">Created in <%= moreCamp.cre.toDateString() %> </small></p>
+                                    
+                            </a>
+                    </div>                
+            <% }}); %>
+    </div>
+</div>
+
+
+
+
+<!--
+<p><%= camp.description%></p>
+<p>Submited by:<%=camp.author.username%></p>
+<!--tenha cuidado aqui, o primeiro id provem do author.id(estando acessando conforme a estrutura do schema.) o segundo 
+necessita de um _id porque estamos tirando da db
+<% if(currentUser && camp.author.id.equals(currentUser._id)){ %>
+<a class="btn btn-primary btn-sm" href="/campgrounds/<%=camp._id%>/edit">Edit campground</a>
+<form action="/campgrounds/<%= camp._id %>?_method=DELETE" method="POST">
+<button>Delete</button>
+</form>
+<% } %>
+
+
+<a href="/login">to comment you need to be logged in</a>
+<% if(currentUser) { %>
+    <form action="/campgrounds/<%= camp._id %>/comments" method="POST">
+        <input type="text" name="comment[text]" placeholder="i think..." style=" width: 30%; height: 5%;">
+        <button style=" width: 5%; height: 5%;">Comment</button>
+    </form>
+<% } %>
+
+<% camp.comments.forEach(function(comment){ %>
+    <p><%= comment.author.username %> - <%= comment.text %></p>
+   <a href="/campgrounds/camp._id/comments/:comment._id/edit">edit</a>
+
+<% }); %>-->
+
+
+
+
+
+<script>
+    /* for like
+const action = req.body.action;
+        const counter = action === 'Like' ? 1 : -1;
+        Campground.update({_id: req.params.id}, {$inc: {likes_count: counter}}, {}, (err, numberAffected) => {
+            res.send('');
+        });
+    //up to here
+
+
+var updatePostStats = {
+            Like: function (postId) {
+                document.querySelector('#likes-count-' + postId).textContent++;
+            },
+            Unlike: function(postId) {
+                document.querySelector('#likes-count-' + postId).textContent--;
+            }
+        };
+
+        var toggleButtonText = {
+            Like: function(button) {
+                button.textContent = "Unlike";
+            },
+            Unlike: function(button) {
+                button.textContent = "Like";
+            }
+        };
+
+        var actOnPost = function (event) {
+            var postId = event.target.dataset.postId;
+            var action = event.target.textContent.trim();
+            toggleButtonText[action](event.target);
+            updatePostStats[action](postId);
+            axios.post('/activities/' + postId, { action: action });
+        // '/posts/' + postId + '/act'
+        };
+
+
+
+        <!--text-->
+<div class="row">
+    <button onclick="actOnPost(event);"
+            data-post-id="{{ this.id }}">Like
+    </button>
+    <span id="likes-count-{{ this.id }}">{{ this.likes_count }}</span>
+<!--text  fim-->
+    fim for like*/
+
+    /*for aleatory element lists*/
+    /*function shuffle(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex;
+
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+
+  return array;
+}*/
+   
+</script>
+
+
+<%- include ('partials/footer') %>

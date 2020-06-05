@@ -1,0 +1,108 @@
+<%- include ('partials/header') %>
+<%- include ('partials/nav') %>
+
+<head>
+    <title>
+        <%=news.title%> | Hossii
+    </title>
+</head>
+
+<style>
+body{
+    background-color: white;
+}
+.titleBot{
+  border-bottom: 3px solid rgba(3, 105, 35, 0.5);
+}
+ul li a:link{
+    color:black;
+  text-decoration: none!important;
+}
+.mainText{
+    line-height: 1.8;
+   
+}
+
+
+</style>
+
+
+
+
+<div class="maindiv mt-4">
+        <div class="conatiner ">
+            <div class="row">
+                <!--div 1 ad-->
+                <div class="col-md-3 col-12 text-center adAd">  </div>
+                <!--div 2 main-->
+                <div class=" col-md-6 col-sm-8 col-12 mb-5 mt-5">
+                        <header > 
+                                <div class="titleNews mb-5">
+                                    <h2 class=" text-center"><%=news.title%></h2>
+                                </div>
+                                <div> 
+                                        <small class="container" >on <%=news.yournewsCreat.toDateString()%>   By <strong><%=news.author.username%></strong>  | G_news staff </small> 
+                                </div>
+                        </header>
+                        <div class=" text-center img mt-2 " >
+                            <img src="<%=news.image%>" style="width: 100%; max-height: 700px;">
+                            <p><span style="background:black; color: white; border-radius: 3px; padding: 3px;"><strong><%=news.Category%></strong></span></p>
+                        </div>
+                        <div class=" text-left ml-2 mt-4 "><p class="mainText"><%=news.description%></p></div>
+
+
+                        <div class="col-md-12 col-sm-12 col-12 mt-5">
+                            <br>
+                            <br>
+                                <h5 class="text-center "><span class="titleBot"><strong>More <%=news.Category%></strong></span></h5>
+                                <div class=" ">
+                                    
+                                            <div class="card-body">
+                                                    <%allMix.reverse();%>
+                                                    <%allMix.forEach(function(x, index){ %>
+                                                    <% if(index >= 0 && index < 8 ){ %>
+                                           
+                                              <!--<p class="card-title"><small class="tagNews">G_Society</small></h6>-->
+                                                
+                                              <ul >
+                                                  <li>
+                                                      <h5 class="card-text mb-1 ">
+                                                            <a href="/yournews/<%= x._id %>"><%=x.title.substring(0,50)%>...</a>
+                                                      </h5>
+                                                   </li>
+                                                </ul>
+                                                    <%}});%>
+                                              <!--<p class="card-text"><small class="text-muted">Last updated 5 mins ago</small></p>-->
+                                            </div>
+                                         
+                                        
+                                     
+                                </div>
+                              </div>
+                        
+                </div>
+                <!--div 3 ad-->
+                <div class="col-md-3 col-sm-4 text-center adAd"> </div>
+            </div>
+        </div>
+    </div>
+
+    
+
+
+
+
+
+
+<!--db.blablabla.update({"username":"blabla"}, {$set{istedim : "blablabla"}})-->
+
+
+
+
+
+
+
+
+
+
+<%- include ('partials/footer') %>
