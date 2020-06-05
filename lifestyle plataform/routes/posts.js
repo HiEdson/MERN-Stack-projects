@@ -26,9 +26,9 @@ var upload = multer({ storage: storage, fileFilter: imageFilter})
 
 var cloudinary = require('cloudinary');
 cloudinary.config({ 
-  cloud_name: 'hhoo', 
-  api_key:'457277892154548', 
-  api_secret:'pI3efWt6glpiZeHCyO7a2f7TngA' 
+  cloud_name: '....', 
+  api_key:'.......', 
+  api_secret:'.......' 
 });
 /*cloudinary.config({ 
   cloud_name: 'letbeedson', 

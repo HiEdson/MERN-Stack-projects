@@ -22,9 +22,9 @@ var upload = multer({ storage: storage, fileFilter: imageFilter})
 
 var cloudinary = require('cloudinary').v2;
 cloudinary.config({ 
-  cloud_name: 'hhoo', 
-  api_key:'457277892154548', 
-  api_secret:'pI3efWt6glpiZeHCyO7a2f7TngA' 
+  cloud_name: '...', 
+  api_key:'.....', 
+  api_secret:'.....' 
 });
 // /*'letbeedson' */ /*'344865456579861' */ /*'0jPjZxdAkONwJbe5r_IS-CRlu1s' */
 //end of updating photo
